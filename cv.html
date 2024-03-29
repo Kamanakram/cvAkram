@@ -88,30 +88,7 @@
         <a href="envoyer_email.php" class="button" target="_blank">Portfolio</a>
     </div>
 
-    <script>
-        function previewImage(event) {
-            var input = event.target;
-            var reader = new FileReader();
-            var img = document.querySelector('.profile-image');
-
-            reader.onload = function() {
-                img.src = reader.result; // Mettre à jour l'image affichée
-                localStorage.setItem('custom_image', reader.result); // Stocker l'image dans le navigateur
-            };
-
-            if (input.files[0]) {
-                reader.readAsDataURL(input.files[0]);
-            } else {
-                img.src = "maphoto.jpg"; // Charger l'image par défaut
-                if (typeof(Storage) !== "undefined") {
-                    localStorage.removeItem('custom_image'); // Supprimer l'image personnalisée stockée
-                }
-            }
-        }
-
-       
-        }
-    </script>
+   
 </body>
 </html>
 
