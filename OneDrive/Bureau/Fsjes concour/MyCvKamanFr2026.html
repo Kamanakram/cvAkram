@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Akram Kaman</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @page {
+            size: A4;
+            margin: 0;
+        }
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #2d3748;
+            background-color: #ffffff;
+            line-height: 1.4;
+        }
+        .cv-page {
+            width: 210mm;
+            height: 297mm;
+            background-color: #ffffff;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+        .top-bar {
+            height: 6px;
+            background: linear-gradient(90deg, #1a365d 0%, #2b6cb0 100%);
+            width: 100%;
+        }
+        .header-section {
+            padding: 25px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .header-info {
+            flex: 1;
+        }
+        .name-title {
+            font-size: 24pt;
+            font-weight: 800;
+            color: #1a365d;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+        }
+        .main-title {
+            font-size: 13pt;
+            font-weight: 700;
+            color: #2b6cb0;
+            margin-top: 6px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .sub-badge {
+            display: inline-block;
+            background-color: #ebf8ff;
+            color: #2b6cb0;
+            font-size: 9pt;
+            font-weight: 600;
+            padding: 3px 10px;
+            border-radius: 20px;
+            margin-top: 5px;
+            border: 1px solid #bee3f8;
+        }
+        .photo-container {
+            width: 110px;
+            height: 110px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .profile-photo {
+            width: 105px;
+            height: 105px;
+            border-radius: 50%;
+            border: 3px solid #2b6cb0;
+            object-fit: cover;
+            background-color: #edf2f7;
+        }
+        .contact-grid {
+            background-color: #1a365d;
+            color: #ffffff;
+            padding: 12px 30px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 8.5pt;
+        }
+        .contact-card i {
+            color: #63b3ed;
+            font-size: 10pt;
+            width: 15px;
+            text-align: center;
+        }
+        .contact-card a {
+            color: #ffffff;
+            text-decoration: none;
+        }
+        .summary-section {
+            padding: 15px 30px 5px 30px;
+        }
+        .summary-box {
+            background-color: #f7fafc;
+            border-left: 4px solid #1a365d;
+            padding: 12px 15px;
+            border-radius: 0 6px 6px 0;
+        }
+        .summary-box p {
+            font-size: 9.5pt;
+            color: #4a5568;
+            text-align: justify;
+        }
+        .main-columns {
+            display: flex;
+            flex: 1;
+            padding: 0 30px 20px 30px;
+            gap: 25px;
+            overflow: hidden;
+        }
+        .left-layout {
+            width: 62%;
+        }
+        .right-layout {
+            width: 38%;
+            border-left: 1px solid #edf2f7;
+            padding-left: 20px;
+        }
+        .section-header {
+            font-size: 11pt;
+            font-weight: 700;
+            color: #1a365d;
+            text-transform: uppercase;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 5px;
+            margin-bottom: 12px;
+            margin-top: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .section-header i {
+            color: #2b6cb0;
+        }
+        .experience-card {
+            margin-bottom: 10px;
+        }
+        .exp-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+        .exp-role {
+            font-size: 9.5pt;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        .exp-date {
+            font-size: 8pt;
+            font-weight: 700;
+            color: #2b6cb0;
+            background-color: #ebf8ff;
+            padding: 1px 6px;
+            border-radius: 4px;
+            white-space: nowrap;
+        }
+        .exp-company {
+            font-size: 8.5pt;
+            color: #718096;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+        .tasks-list {
+            list-style: none;
+        }
+        .tasks-list li {
+            font-size: 8.5pt;
+            color: #4a5568;
+            position: relative;
+            padding-left: 12px;
+            margin-bottom: 2px;
+            text-align: justify;
+        }
+        .tasks-list li::before {
+            content: "•";
+            color: #2b6cb0;
+            position: absolute;
+            left: 2px;
+        }
+        .education-card {
+            margin-bottom: 10px;
+        }
+        .edu-degree {
+            font-size: 9pt;
+            font-weight: 700;
+            color: #2d3748;
+        }
+        .edu-school {
+            font-size: 8.5pt;
+            color: #4a5568;
+        }
+        .edu-date {
+            font-size: 8pt;
+            color: #2b6cb0;
+            font-weight: 700;
+        }
+        .skill-box {
+            background-color: #f7fafc;
+            border: 1px solid #edf2f7;
+            padding: 6px 10px;
+            border-radius: 6px;
+            margin-bottom: 6px;
+        }
+        .skill-title {
+            font-size: 8.5pt;
+            font-weight: 700;
+            color: #1a365d;
+        }
+        .skill-desc {
+            font-size: 8pt;
+            color: #4a5568;
+        }
+        .info-row {
+            font-size: 8.5pt;
+            color: #4a5568;
+            margin-bottom: 4px;
+        }
+        .interest-tag {
+            display: inline-block;
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 8pt;
+            color: #4a5568;
+            margin-right: 2px;
+            margin-bottom: 4px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="cv-page">
+    <div class="top-bar"></div>
+
+    <header class="header-section">
+        <div class="header-info">
+            <h1 class="name-title">Akram Kaman</h1>
+            <div class="main-title">
+                <i class="fa-solid fa-laptop-code"></i> Diplômé en Droit | Développeur Web
+            </div>
+            <div class="sub-badge">
+                <i class="fa-solid fa-graduation-cap"></i> Double compétence: Informatique & Droit
+            </div>
+        </div>
+        <div class="photo-container">
+            <img src="MaPhotoAkram.jpg" alt="Akram Kaman" class="profile-photo">
+        </div>
+    </header>
+
+    <section class="contact-grid">
+        <div class="contact-card">
+            <i class="fa-solid fa-phone"></i>
+            <span>+212 7 08 18 29 33</span>
+        </div>
+        <div class="contact-card">
+            <i class="fa-solid fa-envelope"></i>
+            <a href="mailto:akramkaman17@gmail.com">akramkaman17@gmail.com</a>
+        </div>
+        <div class="contact-card">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Meknès, Maroc</span>
+        </div>
+        <div class="contact-card">
+            <i class="fa-solid fa-globe"></i>
+            <a href="https://kamanakram.github.io/portofolio/" target="_blank">kamanakram.github.io/portofolio/</a>
+        </div>
+        <div class="contact-card">
+            <i class="fa-brands fa-github"></i>
+            <a href="https://github.com/Kamanakram" target="_blank">github.com/Kamanakram</a>
+        </div>
+        <div class="contact-card">
+            <i class="fa-brands fa-linkedin"></i>
+            <a href="https://linkedin.com/in/akram-kaman-097712196" target="_blank">linkedin.com/in/akram-kaman-097712196</a>
+        </div>
+    </section>
+
+    <section class="summary-section">
+        <div class="summary-box">
+            <p>
+                Diplômé en Développement Informatique (DTS) et en Droit Privé (Licence), j'associe des compétences techniques et juridiques à une expérience pratique en gestion opérationnelle et marketing digital. Motivé, rigoureux et doté d'une grande capacité d'apprentissage, je souhaite mobiliser mes compétences techniques et ma polyvalence au service de votre organisme.
+            </p>
+        </div>
+    </section>
+
+    <main class="main-columns">
+        <div class="left-layout">
+            <h2 class="section-header"><i class="fa-solid fa-briefcase"></i> Expériences Professionnelles</h2>
+            
+            <div class="experience-card">
+                <div class="exp-meta">
+                    <span class="exp-role">Responsable de Restaurant & Coordinateur</span>
+                    <span class="exp-date">2024 - Présent</span>
+                </div>
+                <div class="exp-company">Restaurant Dar Lakhlifi & Alaoui King Events | Meknès</div>
+                <ul class="tasks-list">
+                    <li>Piloter les opérations quotidiennes : gestion rigoureuse de la caisse, supervision des flux financiers et optimisation des stocks via Excel.</li>
+                    <li>Encadrer une équipe de travail et gérer la relation client (accueil, fidélisation, résolution des réclamations).</li>
+                    <li>Développer la communication digitale : animation des réseaux sociaux et visibilité locale.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-meta">
+                    <span class="exp-role">Spécialiste Email Marketing</span>
+                    <span class="exp-date">2022 - 2024</span>
+                </div>
+                <div class="exp-company">E-Marketing Solutions</div>
+                <ul class="tasks-list">
+                    <li><strong>Gestion du routage :</strong> Déployer des campagnes d'emailing massives via une application interne dédiée.</li>
+                    <li><strong>Délivrabilité :</strong> Garantir le placement en Inbox (Gmail, Yahoo, AOL) selon les normes anti-spam.</li>
+                    <li><strong>Analyse :</strong> Nettoyage des bases de données et optimisation du ROI via les KPIs.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-meta">
+                    <span class="exp-role">Stagiaire en Développement Web</span>
+                    <span class="exp-date">2021</span>
+                </div>
+                <div class="exp-company">Méga Path Informatique</div>
+                <ul class="tasks-list">
+                    <li>Création d'interfaces web dynamiques en HTML5, CSS3, et JavaScript.</li>
+                </ul>
+            </div>
+
+            <div class="experience-card">
+                <div class="exp-meta">
+                    <span class="exp-role">Stagiaire</span>
+                    <span class="exp-date">2020</span>
+                </div>
+                <div class="exp-company">Cabinet d'Huissier de Justice</div>
+                <ul class="tasks-list">
+                    <li>Réalisation de recherches juridiques et rédaction de documents administratifs sur MS Word.</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="right-layout">
+            <section class="sidebar-block">
+                <h2 class="section-header"><i class="fa-solid fa-graduation-cap"></i> Formations</h2>
+                <div class="education-card">
+                    <div class="edu-degree">Licence en Droit Privé</div>
+                    <div class="edu-school">FSJES Meknès</div>
+                    <div class="edu-date">2018 - 2021</div>
+                </div>
+                <div class="education-card">
+                    <div class="edu-degree">DTS Développement Informatique</div>
+                    <div class="edu-school">ISTA Meknès</div>
+                    <div class="edu-date">2016 - 2018</div>
+                </div>
+            </section>
+
+            <section class="sidebar-block">
+                <h2 class="section-header"><i class="fa-solid fa-sliders"></i> Compétences</h2>
+                <div class="skill-box">
+                    <div class="skill-title">Tech & Dev</div>
+                    <div class="skill-desc">HTML5, CSS3, JavaScript, GitHub, Intégration.</div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-title">Marketing Digital</div>
+                    <div class="skill-desc">Email Marketing, Délivrabilité, Routage, KPIs.</div>
+                </div>
+                <div class="skill-box">
+                    <div class="skill-title">Management</div>
+                    <div class="skill-desc">Gestion d'équipe, Relation Client, MS Office.</div>
+                </div>
+            </section>
+
+            <section class="sidebar-block">
+                <h2 class="section-header"><i class="fa-solid fa-language"></i> Langues</h2>
+                <div class="info-row"><strong>Arabe :</strong> Maternelle</div>
+                <div class="info-row"><strong>Français :</strong> Intermédiaire (B1)</div>
+                <div class="info-row"><strong>Anglais :</strong> Technique (A2)</div>
+            </section>
+
+            <section class="sidebar-block">
+                <h2 class="section-header"><i class="fa-solid fa-heart"></i> Intérêts</h2>
+                <span class="interest-tag">Fitness</span>
+                <span class="interest-tag">Randonnée</span>
+                <span class="interest-tag">Veille Tech</span>
+            </section>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>
